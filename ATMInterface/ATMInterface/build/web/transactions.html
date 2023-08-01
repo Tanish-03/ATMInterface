@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATM Transactions History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #transactionsList {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            max-width: 400px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        #transactionsList p {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #transactionsList ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #transactionsList li {
+            border-bottom: 1px solid #ccc;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>ATM Transactions History</h1>
+    <div id="transactionsList">
+        <p>Loading transactions...</p>
+    </div>
+
+    <script>
+        // Function to fetch and display transactions history
+        function fetchTransactions() {
+            fetch('ATMServlet?action=transactions')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('transactionsList').innerHTML = data;
+                })
+                .catch(error => {
+                    document.getElementById('transactionsList').innerHTML = 'Error fetching transactions.';
+                });
+        }
+
+        // Fetch transactions on page load
+        window.onload = fetchTransactions;
+    </script>
+</body>
+</html>

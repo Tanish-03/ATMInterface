@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATM Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        select,
+        input[type="number"],
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to ATM Demo</h1>
+    <form id="atmForm" action="ATMServlet" method="get">
+        <label for="action">Select an action:</label>
+        <select id="action" name="action">
+            <option value="withdraw">Withdraw</option>
+            <option value="deposit">Deposit</option>
+            <option value="transfer">Transfer</option>
+            <option value="quit">Quit</option>
+        </select><br><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" required><br><br>
+
+        <label for="account">Target Account (for Transfer):</label>
+        <input type="text" id="account" name="account"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
